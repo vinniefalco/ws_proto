@@ -31,7 +31,8 @@ is_upgrade(
 BOOST_WS_PROTO_DECL
 http_proto::request
 make_upgrade(
-    urls::url_view target);
+    core::string_view host,
+    core::string_view target);
 
 } // ws_proto
 } // boost

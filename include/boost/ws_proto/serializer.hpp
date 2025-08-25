@@ -11,6 +11,9 @@
 #define BOOST_WS_PROTO_SERIALIZER_HPP
 
 #include <boost/ws_proto/detail/config.hpp>
+#include <boost/ws_proto/frame.hpp>
+#include <boost/buffers/circular_buffer.hpp>
+#include <boost/http_proto/detail/workspace.hpp>
 #include <stdexcept>
 
 namespace boost {
@@ -18,7 +21,16 @@ namespace ws_proto {
 
 class serializer
 {
+    http_proto::detail::workspace ws_;
+    buffers::circular_buffer bs_;
+
 public:
+    using buffers_type =
+        buffers::circular_buffer::const_buffers_type;
+
+    void
+    append_frame_header();
+
 };
 
 } // ws_proto

@@ -22,14 +22,15 @@ is_upgrade(
 
 http_proto::request
 make_upgrade(
-    urls::url_view target)
+    core::string_view host,
+    core::string_view target)
 {
     http_proto::request req;
     req.set_start_line(
         http_proto::method::get,
-        target.buffer(),
+        target,
         http_proto::version::http_1_1);
-    req.set(http_proto::field::host, "host");
+    req.set(http_proto::field::host, host);
     req.set(http_proto::field::connection, "Upgrade");
     req.set(http_proto::field::upgrade, "websocket");
 

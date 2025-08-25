@@ -24,6 +24,7 @@
 
 namespace boost {
 namespace ws_proto {
+namespace detail {
 
 // frame header opcodes
 enum class opcode : std::uint8_t
@@ -46,8 +47,6 @@ enum class opcode : std::uint8_t
     crsvf   = 15
 };
 
-#if 0
-
 // Contents of a WebSocket frame header
 struct frame_header
 {
@@ -60,6 +59,8 @@ struct frame_header
     bool rsv2 : 1;
     bool rsv3 : 1;
 };
+
+#if 0
 
 // holds the largest possible frame header
 using fh_buffer = flat_static_buffer<14>;
@@ -243,6 +244,7 @@ read_close(
 
 #endif
 
+} // detail
 } // ws_proto
 } // boost
 

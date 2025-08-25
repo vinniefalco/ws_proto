@@ -7,8 +7,8 @@
 // Official repository: https://github.com/cppalliance/ws_proto
 //
 
-#ifndef BOOST_BEAST_WS_PROTO_FRAME_HPP
-#define BOOST_BEAST_WS_PROTO_FRAME_HPP
+#ifndef BOOST_BEAST_WS_PROTO_SRC_FRAME_HPP
+#define BOOST_BEAST_WS_PROTO_SRC_FRAME_HPP
 
 #include <boost/ws_proto/detail/config.hpp>
 

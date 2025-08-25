@@ -8,7 +8,7 @@
 //
 
 #include <boost/ws_proto/serializer.hpp>
-#include "src/impl/frame.hpp"
+#include <boost/ws_proto/detail/frame.hpp>
 
 /*
     Usage Matrix

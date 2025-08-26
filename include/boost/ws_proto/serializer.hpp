@@ -19,14 +19,40 @@
 namespace boost {
 namespace ws_proto {
 
+/** A serializer for WebSocket protocol frames
+*/
 class serializer
 {
     http_proto::detail::workspace ws_;
-    buffers::circular_buffer bs_;
+    buffers::circular_buffer cb_;
 
 public:
-    using buffers_type =
+    using const_buffers_type =
         buffers::circular_buffer::const_buffers_type;
+
+    /** Return the number of bytes in the read area
+    */
+    std::size_t
+    size() const noexcept
+    {
+        return cb_.size();
+    }
+
+    /** Return a constant buffer sequence representing the read area
+    */
+    const_buffers_type
+    data() const noexcept
+    {
+        return cb_.data();
+    }
+
+    /** Remove bytes from the read area
+    */
+    void
+    consume(std::size_t n)
+    {
+        cb_.consume(n);
+    }
 
     void
     append_frame_header();

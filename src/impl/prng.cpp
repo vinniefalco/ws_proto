@@ -83,10 +83,11 @@ secure_generate()
             return gen();
         }
 
-        beast::detail::chacha<20> gen;
+        detail::chacha<20> gen;
         std::mutex mtx;
     };
-    static generator gen{beast::detail::chacha<20>{prng_seed(), make_nonce()}};
+    static generator gen{detail::chacha<20>{
+        prng_seed(), make_nonce()}};
     return gen();
 }
 
@@ -102,7 +103,7 @@ fast_generate()
             return gen();
         }
 
-        beast::detail::pcg gen;
+        detail::pcg gen;
         std::mutex mtx;
     };
     static generator gen{make_pcg()};

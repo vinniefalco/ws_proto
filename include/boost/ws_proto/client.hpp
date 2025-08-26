@@ -15,27 +15,11 @@
 namespace boost {
 namespace ws_proto {
 
-enum class frame_type
-{
-    ping,
-    pong,
-    close,
-    cont,
-    data
-};
-
 /** A WebSocket client
 */
 class client
 {
 public:
-    /** Add an outgoing frame
-    */
-    template<class ConstBufferSequence>
-    bool
-    write(
-        frame_type kind,
-        ConstBufferSequence const& payload);
 };
 
 } // ws_proto

@@ -7,13 +7,11 @@
 // Official repository: https://github.com/cppalliance/ws_proto
 //
 
-#include <boost/ws_proto/detail/frame.hpp>
+#include <boost/ws_proto/frame.hpp>
 
 namespace boost {
 namespace ws_proto {
-namespace detail {
 
-} // detail
 } // ws_proto
 } // boost
 

@@ -8,7 +8,6 @@
 //
 
 #include <boost/ws_proto/serializer.hpp>
-#include <boost/ws_proto/detail/frame.hpp>
 
 /*
     Usage Matrix
@@ -33,6 +32,27 @@
 
 namespace boost {
 namespace ws_proto {
+
+serializer::
+~serializer()
+{
+}
+
+serializer::
+serializer()
+    : ws_(65536)
+{
+    std::size_t n;
+    n = ws_.size() - 1024;
+    cb_ = { ws_.data(), n };
+    ws_.reserve_front(n);
+}
+
+void
+serializer::
+append_frame_header()
+{
+}
 
 } // ws_proto
 } // boost

@@ -30,6 +30,14 @@ public:
     using const_buffers_type =
         buffers::circular_buffer::const_buffers_type;
 
+    BOOST_WS_PROTO_DECL
+    ~serializer();
+
+    /** Constructor.
+    */
+    BOOST_WS_PROTO_DECL
+    serializer();
+
     /** Return the number of bytes in the read area
     */
     std::size_t
@@ -54,6 +62,7 @@ public:
         cb_.consume(n);
     }
 
+    BOOST_WS_PROTO_DECL
     void
     append_frame_header();
 

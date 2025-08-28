@@ -7,8 +7,8 @@
 // Official repository: https://github.com/boostorg/beast
 //
 
-#ifndef BOOST_BEAST_WEBSOCKET_DETAIL_FRAME_HPP
-#define BOOST_BEAST_WEBSOCKET_DETAIL_FRAME_HPP
+#ifndef BOOST_WS_PROTO_FRAME_HPP
+#define BOOST_WS_PROTO_FRAME_HPP
 
 #if 0
 #include <boost/beast/core/buffer_traits.hpp>
@@ -24,7 +24,6 @@
 
 namespace boost {
 namespace ws_proto {
-namespace detail {
 
 // frame header opcodes
 enum class opcode : std::uint8_t
@@ -244,7 +243,6 @@ read_close(
 
 #endif
 
-} // detail
 } // ws_proto
 } // boost
 

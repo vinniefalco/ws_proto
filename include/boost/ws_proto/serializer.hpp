@@ -64,7 +64,8 @@ public:
 
     BOOST_WS_PROTO_DECL
     void
-    append_frame_header();
+    append(
+        frame_header const& fh);
 
 };
 

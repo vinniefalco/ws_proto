@@ -38,6 +38,55 @@ public:
     BOOST_WS_PROTO_DECL
     serializer();
 
+    //--------------------------------------------
+    //
+    // Input area
+    //
+    //--------------------------------------------
+
+    /*
+    start()
+
+        - complete message in one ConstBufferSequence
+        - incremental message in multiple ConstBufferSequence
+        - array of complete messages
+        - `stream` object streaming api
+        - ping, pong, close
+
+    */
+    BOOST_WS_PROTO_DECL
+    void
+    start(
+        bool binary);
+
+    BOOST_WS_PROTO_DECL
+    template<class ConstBufferSequence>
+    std::size_t
+    copy_some(
+        ConstBufferSequence const& data);
+
+    BOOST_WS_PROTO_DECL
+    void
+    finish();
+
+
+
+    BOOST_WS_PROTO_DECL
+    void
+    append(
+        frame_header const& fh);
+
+    BOOST_WS_PROTO_DECL
+    void
+    write(
+        buffers::const_buffer payload);
+
+    //--------------------------------------------
+    //
+    // Output area
+    //
+    //--------------------------------------------
+
     /** Return the number of bytes in the read area
     */
     std::size_t
@@ -46,7 +95,7 @@ public:
         return cb_.size();
     }
 
-    /** Return a constant buffer sequence representing the read area
+    /** Return a constant buffer sequence representing the serialized output
     */
     const_buffers_type
     data() const noexcept
@@ -61,11 +110,6 @@ public:
     {
         cb_.consume(n);
     }
-
-    BOOST_WS_PROTO_DECL
-    void
-    append(
-        frame_header const& fh);
 
 };
 

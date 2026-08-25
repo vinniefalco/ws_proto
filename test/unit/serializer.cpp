@@ -9,3 +9,27 @@
 
 // Test that header file is self-contained.
 #include <boost/ws_proto/serializer.hpp>
+
+#include "test_suite.hpp"
+
+namespace boost {
+namespace ws_proto {
+
+struct serializer_test
+{
+    void
+    run()
+    {
+        /*
+        sr.start(kind::binary);
+        auto n = sr.copy_some(b);
+        */
+    }
+};
+
+TEST_SUITE(
+    serializer_test,
+    "boost.ws_proto.serializer");
+
+} // ws_proto
+} // boost

@@ -107,7 +107,7 @@ serializer::
 append(
     frame_header const& fh)
 {
-    write(cb_, fh);
+    //write(cb_, fh);
 }
 
 } // ws_proto
